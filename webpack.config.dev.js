@@ -2,9 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
-    debug: true,
     devtool: 'inline-source-map',
-    noInfo: false,
     entry: {
         vendor: path.resolve(__dirname, 'src/vendor'),
         main: path.resolve(__dirname, 'src/index')
@@ -19,13 +17,14 @@ export default {
         // create HTML file that creates a reference to bundled JS
         new HtmlWebpackPlugin({
             template: "src/index.html",
-            inject: true
+            // I want script references to be injected into the head element
+            inject: 'head'
         }),
     ],
     module: {
-        loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
-            { test: /\.css$/, loaders: ['style', 'css'] }
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
         ]
     }
 }

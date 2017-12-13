@@ -11,7 +11,8 @@ index.html for dev and production environments
     <!-- build process (webpack plugin) will inject bundled js code,
 	no need to include it -->
 
-    <!-- Embedded JS -- I want this error tracking embedded only for production HTML -->
+    <!-- Embedded JS 
+    I want this error tracking embedded only for production HTML -->
     <!-- when using webpack.config.dev this element wont exist -->
     <% if (htmlWebpackPlugin.options.trackJSToken) { %>
         <!-- BEGIN TRACKJS -->
