@@ -11,7 +11,7 @@ export default {
     output: {
         path: path.resolve(__dirname, 'src'),
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     plugins: [
         // create HTML file that creates a reference to bundled JS
